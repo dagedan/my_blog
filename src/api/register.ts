@@ -32,6 +32,9 @@ export default async function (req: UmiApiRequest, res: UmiApiResponse) {
         // 处理完请求以后记得断开数据库链接
         await prisma.$disconnect();
       } catch (e: any) {
+        console.log("====================================");
+        console.log(e);
+        console.log("====================================");
         // 如果发生未预期的错误，将对应的错误说明的 Prisma 文档发给用户
         res.status(500).json({
           result: false,
